@@ -22,35 +22,59 @@
 
 
 import csv
+from csv import *
 
 # open the vendorlist file
 
-
+infile = open('VendorList.csv','r')
+csvfile = csv.reader(infile)
+next(csvfile)
 # create a csv object from the file object
 
 
 # create an output file
 
-
+outfile = open('Customer_Info.csv','w')
 
 
 
 # create an empty dictionary
 
-
+cust_info = {}
+phone_email = {}
 
 # iterate through the csv object
 
 
 
 
+for i in csvfile:
+    for i in cust_info:
+        cust_info[i] = phone_email[i]
+
+
+        
+
+
+    
+
+    
+    
+    
+
+
+
+
     # add the key-value pair to the dictionary
+    
+csvwriter = csv.writer(outfile)
 
-
+for i in cust_info:
+    csvwriter.writerow(i)
 
 # print the dictionary after the loop is finished
 
-
+print(cust_info)
 
 # iternate through the dictionary and write to the output file
 
@@ -58,3 +82,4 @@ import csv
 
 # close your output file
 
+outfile.close()
