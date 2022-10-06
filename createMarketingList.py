@@ -22,7 +22,7 @@
 
 
 import csv
-from csv import *
+
 
 # open the vendorlist file
 
@@ -41,16 +41,23 @@ outfile = open('Customer_Info.csv','w')
 # create an empty dictionary
 
 cust_info = {}
-phone_email = {}
+
 
 # iterate through the csv object
 
 
 
 
+
+
+
 for i in csvfile:
-    for i in cust_info:
-        cust_info[i] = phone_email[i]
+    cust_info[i[1] + ' ' + i[2]] = {'email:':i[4],'phone:':i[5]}
+
+
+
+
+
 
 
         
@@ -69,9 +76,11 @@ for i in csvfile:
     
 csvwriter = csv.writer(outfile)
 
-for i in cust_info:
-    csvwriter.writerow(i)
+csvwriter.writerow(['Name','Email','Phone'])
 
+for record in cust_info:
+    csvwriter.writerow([record,cust_info[record]['email:'],cust_info[record]['phone:']])
+    #------------------- KEY --  CALL Value --------------  CALL VAlUE ----------------
 # print the dictionary after the loop is finished
 
 print(cust_info)
